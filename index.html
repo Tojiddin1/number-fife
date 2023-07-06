@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 id="demo"></h1>
+    </header>
+    <div class="box">
+        <button id="start">O`yinni boshlang</button>
+        <button onclick="location.reload()">Refresh</button>
+    </div>
+    <span><filter>Agar 5 raqami chiqsa g`olibsiz</filter><div class="close"><div class="t"><div class="b"></div></div></div></span>
+    <script>
+        let demo = document.querySelector("#demo")
+        let start = document.querySelector("#start")
+        let span = document.querySelector("span")
+        
+        let random = Math.floor(Math.random() * 10) + 1
+        start.addEventListener('click', function(){
+            for(i = random; i <= random; i++){
+                demo.innerText = random
+            }
+        })
+
+        setTimeout(function() {
+            span.classList.toggle("spanToggle")
+        }, 3000);
+
+        span.addEventListener('click', function(){
+            span.style.top = "-10em"
+            span.style.right = "-10em"
+        })
+    </script>
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            margin: 0;
+            background-color: #222;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header{
+            width: 100%;
+            height: 25%;
+            border-bottom: 3px solid lime;
+            filter: drop-shadow(0 0 10px lime);
+            position: absolute;
+            top: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        h1{
+            color: lime;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.4));
+            font-size: 50px;
+        }
+
+        .box{
+            width: 100%;
+            height: 75%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center
+        }
+
+        button{
+            background-color: rgba(0, 0, 0, 0.3);
+            color: lime;
+            border: 2px solid lime;
+            border-radius: 15px;
+            padding: 15px 30px;
+            font-size: 20px;
+        }
+
+        button:hover{
+            filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.5));
+        }
+
+        button:active{
+            color: white;
+            border-color: white;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        span{
+            all: unset;
+            width: 350px;
+            height: 150px;
+            background-color: rgba(85, 85, 85, 0.9);
+            border-bottom-left-radius: 100px;
+            display: grid;
+            place-items: center;
+            position: absolute;
+            top: -10em;
+            right: -10em;
+            color: lime;
+            transition: 700ms;
+            box-sizing: border-box;
+        }
+
+        .spanToggle{
+            top: 3em;
+            right: 3em;
+        }
+
+        filter{
+            filter: drop-shadow(0 0 10px lime);
+        }
+
+        span .close{
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            transform: rotate(45deg);
+        }
+
+        span .close::before{
+            content: '';
+            width: 2px;
+            height: 24px;
+            position: absolute;
+            background-color: lime;
+        }
+
+        span .close::after{
+            content: '';
+            width: 24px;
+            height: 2px;
+            position: absolute;
+            background-color: lime;
+        }
+
+        span .close:hover{
+            cursor: pointer;
+        }
+
+        span .close:hover::before, .close:hover::after{
+            background-color: red;
+        }
+    </style>
+</body>
+</html>
